@@ -1,0 +1,635 @@
+salt
+#0369
+
+azrael — เมื่อวานนี้ เวลา 6:50
+the retards are invading
+fr
+FaisalWay — เมื่อวานนี้ เวลา 7:01
+ภาพ
+ภาพ
+ภาพ
+Jandro — เมื่อวานนี้ เวลา 7:11
+tf
+giga nigga — เมื่อวานนี้ เวลา 7:18
+ภาพ
+its me fr
+kal — เมื่อวานนี้ เวลา 7:33
+@xzx get yo friendship up
+ภาพ
+selling the bag
+giga nigga — เมื่อวานนี้ เวลา 7:48
+bro was ready to get raped ngl
+ภาพ
+-3- — เมื่อวานนี้ เวลา 11:27
+.
+dylan. — เมื่อวานนี้ เวลา 14:25
+*from wen first script
+ภาพ
+Moonknight(Mark) — เมื่อวานนี้ เวลา 14:31
+Slide the script
+dylan. — เมื่อวานนี้ เวลา 14:33
+i believe it's useless now, with the limitation of 75k wen
+Moonknight(Mark) — เมื่อวานนี้ เวลา 14:33
+Np
+I need 75k for my breathing level
+Koshiro — เมื่อวานนี้ เวลา 17:03
+ภาพ
+accidentally executed
+Ezz — เมื่อวานนี้ เวลา 17:23
+Reading announcements
+Koshiro — เมื่อวานนี้ เวลา 17:25
+OH FUCK
+no no no...
+I hope I dont get banned fuck my items..
+. — เมื่อวานนี้ เวลา 18:00
+slide it
+i know how to turn the money to potions
+giga nigga — เมื่อวานนี้ เวลา 18:09
+repeat wait() until game:IsLoaded() 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Novaz5792/X/main/X"))() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Novaz5792/X/main/Y"))() 
+
+game.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("getclientping").OnClientInvoke = function(Novaz5792) 
+    task.wait(5)
+    return true 
+end
+
+local mobs = {} 
+
+for i,v in pairs(Workspace.Mobs:GetDescendants()) do 
+    if v:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Npc_Configuration) 
+        table.insert(mobs, {v, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+    if v.Parent:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Parent.Npc_Configuration) 
+        table.insert(mobs, {v.Parent, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+end 
+
+Workspace.Mobs.DescendantAdded:Connect(function(v)
+    if v:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Npc_Configuration) 
+        table.insert(mobs, {v, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+    if v.Parent:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Parent.Npc_Configuration) 
+        table.insert(mobs, {v.Parent, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+end)
+
+Workspace.Mobs.DescendantRemoving:Connect(function(v)
+    if v:IsA("Configuration") then 
+        for i1,v1 in ipairs(mobs) do 
+            if v1[1] == v then 
+                table.remove(mobs, i1)
+            end 
+        end 
+    end 
+end)
+
+function getclosestmob(bosses)
+    local ret = {{nil, Vector3.new()}, Huge} 
+    for i,v in pairs(mobs) do
+        local model = v[1]:FindFirstChildOfClass("Model")
+        if model and model:FindFirstChild("Humanoid") and model.Humanoid.Health > 0 and (r and Workspace.Mobs:FindFirstChild("Bosses") and model:IsDescendantOf(Workspace.Mobs.Bosses) or true) then 
+            local magnitude = (HumanoidRootPart.Position - v[2]).Magnitude 
+            if model:FindFirstChild("HumanoidRootPart") then 
+                local magnitude1 = (HumanoidRootPart.Position - model:FindFirstChild("HumanoidRootPart").Position).Magnitude
+                if magnitude1 < ret[2] then 
+                    ret[2] = magnitude1 
+                    ret[1][1] = model 
+                    ret[1][2] = v[2]
+                end 
+            elseif magnitude < ret[2] then 
+                ret[2] = magnitude 
+                ret[1][1] = model 
+                ret[1][2] = v[2]
+            end 
+        end 
+    end
+    return ret[1]
+end 
+
+local lib = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
+local subs = lib.subs 
+local libclose = subs.Wait
+
+local window = lib:CreateWindow({
+    Name = "Novaz#5792",
+    Themeable = {
+        Info = {"Kalas A Skid"},
+        Credit = false, 
+        Background = "",
+        Visible = true
+    }
+})
+
+local main1 = window:CreateTab({
+    Name = "Main"
+})
+
+local section1 = main1:CreateSection({
+    Name = "Main"
+})
+
+local section2 = main1:CreateSection({
+    Name = "Kill Aura",
+    Side = "Right"
+})
+
+Stepped:Connect(function()
+    if a then 
+        for i,v in pairs(Character:GetChildren()) do 
+            if v:IsA("BasePart") and v.CanCollide then 
+                v.CanCollide = false 
+            end 
+... (104 บรรทัด)
+ย่อ
+message.txt
+11 KB
+Dartanian — เมื่อวานนี้ เวลา 18:18
+ภาพ
+i get straw hat every time 
+Ida — เมื่อวานนี้ เวลา 18:22
+That on is Mugen right?
+giga nigga — เมื่อวานนี้ เวลา 18:23
+yes
+Ida — เมื่อวานนี้ เวลา 18:23
+aye
+Dartanian — เมื่อวานนี้ เวลา 20:23
+ภาพ
+ANOTHER MUGEN ANOTHER W
+Koshiro — เมื่อวานนี้ เวลา 20:23
+ภาพ
+Dartanian — เมื่อวานนี้ เวลา 20:23
+FLAME NECKLACE YES
+Koshiro — เมื่อวานนี้ เวลา 20:23
+damn bro mine's an L
+Dartanian — เมื่อวานนี้ เวลา 20:23
+dw koshiro, i do like 9 mugens a day
+and get shit
+Koshiro — เมื่อวานนี้ เวลา 20:23
+damn even shockwave necklace
+ภาพ
+theres goes my last mugen ride
+gotta save up
+Dartanian — เมื่อวานนี้ เวลา 20:24
+POV : volcanic sword, rengoku clan, flame necklace, flame breathing
+Dartanian — เมื่อวานนี้ เวลา 20:24
+🤣
+Koshiro — เมื่อวานนี้ เวลา 20:24
+yo wtf OP build
+how much plus damage is volcanic sword
+yo dart which is better for pvp flame breathing or swamp/dream/reaper bda?
+Dartanian — เมื่อวานนี้ เวลา 20:25
+flame is good
+dream is good 
+swamp is broken
+Koshiro — เมื่อวานนี้ เวลา 20:26
+ภาพ
+okay thanks
+Dartanian — เมื่อวานนี้ เวลา 20:26
+why so fat
+Dartanian — เมื่อวานนี้ เวลา 20:26
+ภาพ
+Koshiro — เมื่อวานนี้ เวลา 20:28
+damn I'm curious how much purgatory damage u can do now
+with all those inventory
+Dartanian — เมื่อวานนี้ เวลา 20:29
+i do the max amount of damage you can do with flame breathing now..
+Koshiro — เมื่อวานนี้ เวลา 20:29
+try it out with npc or something
+Nico2345 — เมื่อวานนี้ เวลา 21:20
+what does it do?
+Koshiro — เมื่อวานนี้ เวลา 21:54
+makes ur dick big
+Katxiqial — เมื่อวานนี้ เวลา 21:57
+https://cdn.discordapp.com/attachments/747865181048275015/987782098817523764/video0_9_1.mp4?size=4096
+£oco — เมื่อวานนี้ เวลา 22:57
+anyone got a working dungeon script
+i need the purple sycthe
+giga nigga — เมื่อวานนี้ เวลา 23:23
+ภาพ
+Rain. — เมื่อวานนี้ เวลา 23:52
+so true! giga nigger
+giga nigga — วันนี้ เวลา 0:02
+ภาพ
+Ryu — วันนี้ เวลา 0:03
+can u fking explain ur self nigga
+giga nigga — วันนี้ เวลา 0:11
+i like femboys
+Ashura — วันนี้ เวลา 0:12
+Go suck ya mada
+ภาพ
+giga nigga — วันนี้ เวลา 0:12
+STFU BITCH
+U NOT TALKING TO UR GOOFY ASS DAD BITCH
+Ashura — วันนี้ เวลา 0:13
+Eat a dick u fat tub of lard
+giga nigga — วันนี้ เวลา 0:13
+MF GO KILL UR SELF
+U SERVE 0 PURPOSE
+Ashura — วันนี้ เวลา 0:13
+Says the monkey
+giga nigga — วันนี้ เวลา 0:14
+MF U USE BLACK RICK ON UR PFP
+CRINGE BITCH
+Ashura — วันนี้ เวลา 0:14
+Ur name is giga nigga
+U the corniest nigga in this whole discord
+Then u got a buff black man as ur pfp
+ภาพ
+giga nigga — วันนี้ เวลา 0:14
+Better than a black Rick
+Ashura — วันนี้ เวลา 0:15
+Can tell ur white
+And ur like 14
+giga nigga — วันนี้ เวลา 0:15
+U trying to be cool
+Ashura — วันนี้ เวลา 0:15
+Fuck@up
+giga nigga — วันนี้ เวลา 0:15
+Stfu bitch
+Th
+U got no family
+Goofy ass
+Ashura — วันนี้ เวลา 0:15
+Nigga stuttered while typing
+💀
+giga nigga — วันนี้ เวลา 0:15
+Mf stfu
+Ashura — วันนี้ เวลา 0:15
+U mad
+ภาพ
+Rain. — วันนี้ เวลา 0:17
+ashura stop arguing with a brazilian
+you win automatically since hes from brazil
+Absent — วันนี้ เวลา 0:18
+ภาพ
+Rain. — วันนี้ เวลา 0:19
+brazilians are all dirty third world niggers
+Dartanian — วันนี้ เวลา 0:46
+ภาพ
+W or L?
+(cupids battle axe is worth like 1 sp reset)
+oreo — วันนี้ เวลา 0:52
+dont understand gpo but that looks nice
+Dartanian — วันนี้ เวลา 0:52
+me neither, oreo
+oreo — วันนี้ เวลา 0:52
+since im like level 40 with nothing
+Dartanian — วันนี้ เวลา 0:52
+i just know elo is worth something
+oreo — วันนี้ เวลา 0:52
+U NEITHER?
+Dartanian — วันนี้ เวลา 0:53
+no
+i dont know value
+oreo — วันนี้ เวลา 0:53
+u have some rainbow glowing shit
+i have commons
+Dartanian — วันนี้ เวลา 0:53
+but i dont care about df's
+oreo — วันนี้ เวลา 0:53
+ah ic
+Dartanian — วันนี้ เวลา 0:53
+since br
+oreo — วันนี้ เวลา 0:53
+why dont u just
+Dartanian — วันนี้ เวลา 0:53
+and everyone knows elo is worth something
+oreo — วันนี้ เวลา 0:53
+sell them
+Dartanian — วันนี้ เวลา 0:53
+i mean, i got them for free
+oreo — วันนี้ เวลา 0:53
+i saw people buying em in  frosthub trading
+shits crazy
+Dartanian — วันนี้ เวลา 0:53
+20 minutes for magu and pika as well as goro isn't anything
+i see it as a win
+im also gonna try flipping it
+wellre — วันนี้ เวลา 0:54
+this me
+ภาพ
+oreo — วันนี้ เวลา 0:55
+good luck
+but do u want the link to frosthub trading
+maybe u could make some profit as well
+Dartanian — วันนี้ เวลา 0:55
+im already in it
+oreo — วันนี้ เวลา 0:55
+o
+the fucking prices are nuts
+especially the soul cane
+i have no idea what it does or how to get
+Dartanian — วันนี้ เวลา 0:56
+only thing is, black markets sometimes OP everything
+oreo — วันนี้ เวลา 0:56
+but still for 180-200 dollars
+oreo — วันนี้ เวลา 0:56
+true
+oreo — วันนี้ เวลา 0:56
+thats why u should just sell stuff and not buy
+let them op u
+Ashura — วันนี้ เวลา 0:59
+😂😂
+Rain. — วันนี้ เวลา 1:02
+giant W
+hasnt elo lost value
+he offering pika battle axe and a magu
+Dartanian — วันนี้ เวลา 1:03
+i dont know..
+i gave the df's for elo
+i dont really care about fruits since br
+Rain. — วันนี้ เวลา 1:03
+i mean i personall wouldnt take it since hammers are hot 
+Dartanian — วันนี้ เวลา 1:04
+i took it because i know df's aren't worth what they were
+im gonna try flipping elo as well
+-RS- — วันนี้ เวลา 1:05
+sry now who can use this script i cant use that when I click free bottom I have kicked
+Dartanian — วันนี้ เวลา 1:06
+ภาพ
+@Rain.
+i underpaid for elo
+holy W
+Dartanian — วันนี้ เวลา 1:06
+do i take it though..
+Rain. — วันนี้ เวลา 1:07
+if elo is worth that much then fuck no
+Dartanian — วันนี้ เวลา 1:07
+i dont know value!!
+Rain. — วันนี้ เวลา 1:07
+you see this guy adding way more for it
+Dartanian — วันนี้ เวลา 1:07
+yeah
+oreo — วันนี้ เวลา 1:07
+i think u should
+tell him to add more
+Rain. — วันนี้ เวลา 1:08
+the guy you tryna trade with is underpaying if hes really offering all that
+yeah
+tell him to add
+oreo — วันนี้ เวลา 1:08
+till he says hes not gonna op
+then say fine u will take that offer
+Dartanian — วันนี้ เวลา 1:08
+i asked him "like which fruits??"
+since he said "and many fruit adds"
+oreo — วันนี้ เวลา 1:09
+make him add everything
+then put it on the market
+actually u dont even need to sell gpo items for money
+u can just post selling ores in the server
+i doubt alot of people gonna dm u
+but scammers is the problem 😐
+Dartanian — วันนี้ เวลา 1:10
+i mean
+if i had the chance to scam someone out of their inventory
+ok 🤣 
+the guy stopped responding
+BelugaGM<^^> — วันนี้ เวลา 2:33
+That maybe means he is a scammer.
+Dartanian — วันนี้ เวลา 2:38
+not at all
+if he said "i'll trade you the shit after i get elo" that'd be a obvious scam
+you put the items in, if they dont
+thats scamming 
+BelugaGM<^^> — วันนี้ เวลา 2:40
+Fatal Crash
+giga nigga — วันนี้ เวลา 4:06
+My cat after 2 hours of intense rape
+ภาพ
+Ida — วันนี้ เวลา 4:24
+eat him
+giga nigga — วันนี้ เวลา 4:44
+He is full of cum
+I can't
+crimes — วันนี้ เวลา 6:30
+ny friend traded elo for soul cane 💀
+@Dartanian
+Dartanian — วันนี้ เวลา 6:51
+and soul cane would be worth the shit I gave
+df’s value are shit because of br
+i've also only got better offers than what i traded
+crimes — วันนี้ เวลา 6:58
+damn
+Dartanian — วันนี้ เวลา 6:58
+besides like two offers
+they were shit
+ภาพ
+thats one offer
+already a OP than what i gave
+ason.sucks — วันนี้ เวลา 7:07
+novaz fucked me over
+ภาพ
+Dartanian — วันนี้ เวลา 7:08
+💀
+﻿
+repeat wait() until game:IsLoaded() 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Novaz5792/X/main/X"))() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Novaz5792/X/main/Y"))() 
+
+game.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("getclientping").OnClientInvoke = function(Novaz5792) 
+    task.wait(5)
+    return true 
+end
+
+local mobs = {} 
+
+for i,v in pairs(Workspace.Mobs:GetDescendants()) do 
+    if v:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Npc_Configuration) 
+        table.insert(mobs, {v, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+    if v.Parent:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Parent.Npc_Configuration) 
+        table.insert(mobs, {v.Parent, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+end 
+
+Workspace.Mobs.DescendantAdded:Connect(function(v)
+    if v:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Npc_Configuration) 
+        table.insert(mobs, {v, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+    if v.Parent:FindFirstChild("Npc_Configuration") and v.Parent:FindFirstChild("Npc_Configuration"):IsA("ModuleScript") then
+        local modu = require(v.Parent.Npc_Configuration) 
+        table.insert(mobs, {v.Parent, modu.Npc_Spawning.Spawn_Locations[1] or modu.Npc_Spawning.Spawn_Locations, modu.Name})
+    end 
+end)
+
+Workspace.Mobs.DescendantRemoving:Connect(function(v)
+    if v:IsA("Configuration") then 
+        for i1,v1 in ipairs(mobs) do 
+            if v1[1] == v then 
+                table.remove(mobs, i1)
+            end 
+        end 
+    end 
+end)
+
+function getclosestmob(bosses)
+    local ret = {{nil, Vector3.new()}, Huge} 
+    for i,v in pairs(mobs) do
+        local model = v[1]:FindFirstChildOfClass("Model")
+        if model and model:FindFirstChild("Humanoid") and model.Humanoid.Health > 0 and (r and Workspace.Mobs:FindFirstChild("Bosses") and model:IsDescendantOf(Workspace.Mobs.Bosses) or true) then 
+            local magnitude = (HumanoidRootPart.Position - v[2]).Magnitude 
+            if model:FindFirstChild("HumanoidRootPart") then 
+                local magnitude1 = (HumanoidRootPart.Position - model:FindFirstChild("HumanoidRootPart").Position).Magnitude
+                if magnitude1 < ret[2] then 
+                    ret[2] = magnitude1 
+                    ret[1][1] = model 
+                    ret[1][2] = v[2]
+                end 
+            elseif magnitude < ret[2] then 
+                ret[2] = magnitude 
+                ret[1][1] = model 
+                ret[1][2] = v[2]
+            end 
+        end 
+    end
+    return ret[1]
+end 
+
+local lib = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
+local subs = lib.subs 
+local libclose = subs.Wait
+
+local window = lib:CreateWindow({
+    Name = "Novaz#5792",
+    Themeable = {
+        Info = {"Kalas A Skid"},
+        Credit = false, 
+        Background = "",
+        Visible = true
+    }
+})
+
+local main1 = window:CreateTab({
+    Name = "Main"
+})
+
+local section1 = main1:CreateSection({
+    Name = "Main"
+})
+
+local section2 = main1:CreateSection({
+    Name = "Kill Aura",
+    Side = "Right"
+})
+
+Stepped:Connect(function()
+    if a then 
+        for i,v in pairs(Character:GetChildren()) do 
+            if v:IsA("BasePart") and v.CanCollide then 
+                v.CanCollide = false 
+            end 
+        end
+        HumanoidRootPart.Velocity = Vector3.zero
+    end 
+end)
+
+local shouldattack = false 
+local curtween = nil 
+section1:AddToggle({
+    Name = "Auto Farm", 
+    Value = false, 
+    Flag = "AFB", 
+    Callback = function(state)
+        a = state 
+        while a do 
+            local target = getclosestmob() 
+            if target and target[1] and target[2] then 
+                if target[1] and (not target[1]:FindFirstChild("HumanoidRootPart")) then 
+                    shouldattack = false 
+                    if curtween then 
+                        curtween:Pause()
+                    end 
+                    curtween = TweenService:Create(HumanoidRootPart, TweenInfo.new((target[2] - HumanoidRootPart.Position).Magnitude / 200, Enum.EasingStyle.Linear), {CFrame = CFrame.new(target[2])})
+                    curtween:Play()
+                elseif target[1] and target[1]:FindFirstChild("HumanoidRootPart") then 
+                    if (target[1]:FindFirstChild("HumanoidRootPart").Position - HumanoidRootPart.Position).Magnitude < 100 then 
+                       --HumanoidRootPart.CFrame = CFrame.new(target[1]:FindFirstChild("HumanoidRootPart").Position + Vector3.new(0, 12, 0) + target[1]:FindFirstChild("HumanoidRootPart").CFrame.LookVector * 6, target[1]:FindFirstChild("HumanoidRootPart").Position)
+                        HumanoidRootPart.CFrame = CFrame.new(target[1].HumanoidRootPart.Position + target[1].HumanoidRootPart.CFrame.LookVector * 10, target[1].HumanoidRootPart.Position)
+                        shouldattack = true 
+                    elseif (target[1]:FindFirstChild("HumanoidRootPart").Position - HumanoidRootPart.Position).Magnitude > 100 then
+                        shouldattack = false 
+                        if curtween then 
+                            curtween:Pause()
+                        end 
+                        curtween = TweenService:Create(HumanoidRootPart, TweenInfo.new((target[1]:FindFirstChild("HumanoidRootPart").Position - HumanoidRootPart.Position).Magnitude / 200, Enum.EasingStyle.Linear), {CFrame = CFrame.new(target[1]:FindFirstChild("HumanoidRootPart").Position)})
+                        curtween:Play()
+                    end 
+                end 
+            end 
+            task.wait()
+        end 
+    end 
+})
+
+section1:AddDropdown({
+    Name = "Bosses?", 
+    Nothing = "Select U Retard",
+    List = {"Yes", "No"}, 
+    Flag = "Bos", 
+    Callback = function(state)
+       r = state  
+    end
+})
+
+getgenv().debounce = false 
+section2:AddToggle({
+    Name = "Kill Aura", 
+    Value = false, 
+    Flag = "KA", 
+    Callback = function(state)
+        b = state 
+        while b do 
+            if (not debounce) then 
+                debounce = true 
+                local last = 999
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 1, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 2, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 3, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 4, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 919, "ground_slash")
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 1, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 2, "ground_slash")
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 3, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 4, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 919, "ground_slash")
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 1, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 2, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 3, "ground_slash") 
+                repeat task.wait(.05) until shouldattack
+                game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 4, "ground_slash") 
+                last = game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S_:InvokeServer("Sword_Combat_Slash", Player, Character, HumanoidRootPart, Humanoid, 919, "ground_slash") 
+                repeat task.wait() until last ~= 999
+                task.wait(1.3)
+                debounce = false 
+            end 
+            task.wait()
+        end 
+    end 
+})
+
+for i,v in pairs(getconnections(Player.Idled)) do 
+    v:Disable()
+end
